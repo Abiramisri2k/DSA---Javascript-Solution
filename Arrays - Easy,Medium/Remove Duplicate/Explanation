@@ -1,0 +1,71 @@
+Problem Statement:
+
+You are given a sorted array of numbers. You need to remove duplicate numbers directly inside the same array (without using extra space) so that only one copy of each number remains. After removing duplicates, the first part of the array should contain only the unique numbers in the same order they appeared. The rest of the array can be ignored. Finally, return the count of unique numbers (k).
+
+Example:
+nums = [0,0,1,1,1,2,2,3,3,4]
+After removing duplicates: nums = [0,1,2,3,4,...]
+Answer: k = 5 (since 5 unique numbers).
+
+Approach:
+
+1. x = 0:Pointer to track the last unique element's position.
+2. Loop through the array from i = 0tonums.length.
+3. If true (new unique value), increment x and update nums[x] = nums[i].
+4. This shifts the unique value forward in the array.
+5. At the end, x + 1 gives the count of unique elements.
+
+Step-by-step Execution of the code:
+
+Initialize:
+x = 0
+nums = [0,0,1,1,1,2,2,3,3,4]
+
+👉 i = 0
+nums[i] = 0, nums[x] = 0 → condition (0 > 0) false → do nothing
+
+👉 i = 1
+nums[i] = 0, nums[x] = 0 → (0 > 0) false → do nothing
+
+👉 i = 2
+nums[i] = 1, nums[x] = 0 → (1 > 0) true → x = 1
+
+nums[1] = 1 → now nums = [0,1,1,1,1,2,2,3,3,4]
+
+👉 i = 3
+nums[i] = 1, nums[x] = 1 → (1 > 1) false → do nothing
+
+👉 i = 4
+nums[i] = 1, nums[x] = 1 → false
+
+👉 i = 5
+nums[i] = 2, nums[x] = 1 → (2 > 1) true → x = 2
+
+nums[2] = 2 → now nums = [0,1,2,1,1,2,2,3,3,4]
+
+👉 i = 6
+nums[i] = 2, nums[x] = 2 → false
+
+👉 i = 7
+nums[i] = 3, nums[x] = 2 → (3 > 2) true → x = 3
+
+nums[3] = 3 → now nums = [0,1,2,3,1,2,2,3,3,4]
+
+👉 i = 8
+nums[i] = 3, nums[x] = 3 → false
+
+👉 i = 9
+nums[i] = 4, nums[x] = 3 → (4 > 3) true → x = 4
+
+nums[4] = 4 → now nums = [0,1,2,3,4,2,2,3,3,4]
+
+End of loop:
+
+x = 4
+Return x + 1 = 5
+
+Final Answer:
+
+k = 5
+
+Modified nums = [0,1,2,3,4, …] (rest values can be ignored)
