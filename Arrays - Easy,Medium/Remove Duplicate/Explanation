@@ -1,6 +1,9 @@
 Problem Statement:
 
-You are given a sorted array of numbers. You need to remove duplicate numbers directly inside the same array (without using extra space) so that only one copy of each number remains. After removing duplicates, the first part of the array should contain only the unique numbers in the same order they appeared. The rest of the array can be ignored. Finally, return the count of unique numbers (k).
+You are given a sorted array of numbers. 
+You need to remove duplicate numbers directly inside the same array (without using extra space) so that only one copy of each number remains. 
+After removing duplicates, the first part of the array should contain only the unique numbers in the same order they appeared. 
+The rest of the array can be ignored. Finally, return the count of unique numbers (k).
 
 Example:
 nums = [0,0,1,1,1,2,2,3,3,4]
