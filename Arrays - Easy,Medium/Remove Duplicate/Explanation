@@ -65,7 +65,5 @@ x = 4
 Return x + 1 = 5
 
 Final Answer:
-
 k = 5
-
 Modified nums = [0,1,2,3,4, …] (rest values can be ignored)
