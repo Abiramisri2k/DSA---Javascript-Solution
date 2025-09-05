@@ -1,0 +1,72 @@
+Problem Statement:
+
+Remove all occurrences of val from the array, but you must do it in-place (without creating a new array).
+After removing, the elements that remain (not equal to val) should stay in the front part of the array.
+The order of the elements doesn’t matter (you can rearrange them if needed).
+The function should return k, where k is the number of elements that are not equal to val.
+Only the first k elements of nums matter—the rest of the array can be ignored.
+
+Approach:
+
+Use pointer k to track where the next non-val element should go.
+Traverse the array with index i.
+If nums[i] != val, assign nums[k] = nums[i]and increment k.
+
+
+Dry run:
+
+Initial State
+nums = [4,8,3,4,9,4], val = 4, k = 0 
+
+Iterations
+i = 0:
+nums == 4 (equals val)
+
+Nothing happens, k = 0
+
+i = 1:
+nums == 8 (not equal to val)
+
+Write: nums[k] = nums => nums = 8
+
+Increment: k = 1
+
+nums = [8,8,3,4,9,4]
+
+i = 2:
+nums == 3 (not equal to val)
+
+Write: nums[k] = nums => nums = 3
+
+Increment: k = 2
+
+nums = [8,3,3,4,9,4]
+
+i = 3:
+nums == 4 (equals val)
+
+Nothing happens, k = 2
+
+i = 4:
+nums == 9 (not equal to val)
+
+Write: nums[k] = nums => nums = 9
+
+Increment: k = 3
+
+nums = [8,3,9,4,9,4]
+
+i = 5:
+nums == 4 (equals val)
+
+Nothing happens, k = 3
+
+After the loop
+Returned value: k = 3
+
+Array: [8, 3, 9, 4, 9, 4]
+
+Only the first 3 elements ([8,3,9]) are guaranteed not to be the value 4—the rest are ignored.
+
+Final Output
+Return value: 3

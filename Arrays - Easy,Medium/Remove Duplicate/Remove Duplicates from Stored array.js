@@ -12,3 +12,6 @@ var removeDuplicates = function(nums) {
     }
     return x+1;
 };
+
+//Time complexity - O(n), where n = nums.length.
+//Space complexity - O(1)(constant extra space).
