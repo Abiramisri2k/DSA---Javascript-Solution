@@ -1,0 +1,71 @@
+Problem Statement:
+
+Create a function that reverses a string.
+The string will be provided as an array of characters s.
+You must reverse the characters directly inside the same array (in-place) and use only constant extra memory (O(1)).
+ 
+Example:
+
+Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+
+Approach:
+
+1. Place one pointer at the beginning of the array and another at the end.
+2. Swap the characters at these two positions.
+3. Keep repeating this process until the two pointers meet or cross in the middle.
+
+Dry run:
+
+Initial State:
+
+s = ['k','e','e','p',' ','l','e','a','r','n','i','n','g']
+len = 13
+halfLen = Math.floor(13/2) = 6
+
+Step-by-Step Iteration:
+
+i = 0
+temp = s = 'k'
+s = s = 'g'
+s = temp = 'k'
+s = ['g','e','e','p',' ','l','e','a','r','n','i','n','k']
+
+i = 1
+temp = s = 'e'
+s = s = 'n'
+s = temp = 'e'
+s = ['g','n','e','p',' ','l','e','a','r','n','i','e','k']
+
+i = 2
+temp = s = 'e'
+s = s = 'i'
+s = temp = 'e'
+s = ['g','n','i','p',' ','l','e','a','r','n','e','e','k']
+
+i = 3
+temp = s = 'p'
+s = s = 'n'
+s = temp = 'p'
+s = ['g','n','i','n',' ','l','e','a','r','p','e','e','k']
+
+i = 4
+temp = s = ' '
+s = s = 'r'
+s = temp = ' '
+s = ['g','n','i','n','r','l','e','a',' ','p','e','e','k']
+
+i = 5
+temp = s = 'l'
+s = s = 'a'
+s = temp = 'l'
+s = ['g','n','i','n','r','a','e','l',' ','p','e','e','k']
+
+i = 6 (middle)
+temp = s = 'e'
+s = s = 'e'
+(swap happens but no visible change)
+
+Final state:
+s = ['g','n','i','n','r','a','e','l',' ','p','e','e','k']
+Joined: "gninrael peek"
