@@ -1,0 +1,62 @@
+Problem Statement:
+
+You are given an array prices, where prices[i] represents the price of a stock on the i-th day.
+Your task is to find the maximum profit you can earn by:
+  --> Buying the stock on one day, and
+  --> Selling it on a later day.
+If no profit can be made, return 0.
+
+Brute Force Approach:
+
+1. Start with maxProfit = 0.
+2. Loop through each day i (as the buying day).
+3. For every i, loop through all future days j > i (as the selling day).
+4. Calculate the profit = prices[j] - prices[i].
+5. If this profit is greater than maxProfit, update maxProfit.
+6. After checking all pairs (i, j), return maxProfit.
+
+Dry run:
+
+prices = [7,1,5,3,6,4].
+
+Initial setup:
+
+maxProfit = 0
+
+Outer loop i = 0 (buy at 7)
+j = 1 → profit = 1 - 7 = -6 → not better
+j = 2 → profit = 5 - 7 = -2 → not better
+j = 3 → profit = 3 - 7 = -4 → not better
+j = 4 → profit = 6 - 7 = -1 → not better
+j = 5 → profit = 4 - 7 = -3 → not better
+Best profit so far = 0
+
+Outer loop i = 1 (buy at 1)
+j = 2 → profit = 5 - 1 = 4 → update maxProfit = 4
+j = 3 → profit = 3 - 1 = 2 → not better
+j = 4 → profit = 6 - 1 = 5 → update maxProfit = 5
+j = 5 → profit = 4 - 1 = 3 → not better
+Best profit so far = 5
+
+Outer loop i = 2 (buy at 5)
+j = 3 → profit = 3 - 5 = -2 → not better
+j = 4 → profit = 6 - 5 = 1 → not better
+j = 5 → profit = 4 - 5 = -1 → not better
+Best profit still = 5
+
+Outer loop i = 3 (buy at 3)
+j = 4 → profit = 6 - 3 = 3 → not better
+j = 5 → profit = 4 - 3 = 1 → not better
+Best profit still = 5
+
+Outer loop i = 4 (buy at 6)
+j = 5 → profit = 4 - 6 = -2 → not better
+Best profit still = 5
+
+Outer loop i = 5 (buy at 4)
+(no future days left)
+Best profit still = 5
+
+Final Answer:
+
+maxProfit = 5

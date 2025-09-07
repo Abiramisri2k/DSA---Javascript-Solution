@@ -12,5 +12,5 @@ var reverseString = function(s) {
     }
 };
 
-//Time complexity - O(n), where n = nums.length.
+//Time complexity - O(n), where n = s.length.
 //Space complexity - O(1)(constant extra space).
