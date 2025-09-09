@@ -1,0 +1,49 @@
+Problem Statement:
+
+You are given an array of integers nums. Rearrange the array so that all the zeros are moved to the end, while keeping the order of the non-zero elements the same. The operation must be done directly on the given array (in-place), without using extra space for another array.
+
+Approach:
+
+1. Use a pointer `x = 0` to track the position where the next non-zero should go.
+2. Loop through the array with index `i`.
+3. If `nums[i]` is non-zero, assign it to `nums[x]` and increment `x`.
+4. After the loop, all non-zeros are compacted at the start in correct order.
+5. Fill the remaining positions from `x` to the end of the array with zeros.
+6. Result: non-zeros stay in order, zeros move to the end, all done in-place.
+
+Dry run:
+
+input:
+
+nums = [0, 1, 0, 3, 12]
+Start: x = 0
+
+First loop — move non-zeros to front
+
+i = 0 → nums[0] = 0 → it's zero → skip
+Array: [0, 1, 0, 3, 12], x = 0
+
+i = 1 → nums[1] = 1 → non-zero → copy to nums[x] → nums[0] = 1 and x++
+Array after assignment: [1, 1, 0, 3, 12], x = 1
+
+i = 2 → nums[2] = 0 → zero → skip
+Array: [1, 1, 0, 3, 12], x = 1
+
+i = 3 → nums[3] = 3 → non-zero → nums[1] = 3 and x++
+Array: [1, 3, 0, 3, 12], x = 2
+
+i = 4 → nums[4] = 12 → non-zero → nums[2] = 12 and x++
+Array: [1, 3, 12, 3, 12], x = 3
+
+End of first loop:
+x = 3
+First x elements are the non-zero values in original order: [1,3,12]
+The rest of the array may contain leftover values: [3,12] (to be overwritten)
+
+Second loop — fill remaining positions with 0
+Loop i from x to nums.length - 1:
+
+i = 3 → set nums[3] = 0 → Array: [1, 3, 12, 0, 12]
+i = 4 → set nums[4] = 0 → Array: [1, 3, 12, 0, 0]
+
+Final array: [1, 3, 12, 0, 0]
