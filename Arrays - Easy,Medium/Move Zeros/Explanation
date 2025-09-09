@@ -1,6 +1,8 @@
 Problem Statement:
 
-You are given an array of integers nums. Rearrange the array so that all the zeros are moved to the end, while keeping the order of the non-zero elements the same. The operation must be done directly on the given array (in-place), without using extra space for another array.
+You are given an array of integers nums. Rearrange the array so that all the zeros are moved to the end, 
+while keeping the order of the non-zero elements the same. 
+The operation must be done directly on the given array (in-place), without using extra space for another array.
 
 Approach:
 
