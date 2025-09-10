@@ -1,0 +1,47 @@
+Problem Statement:
+
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+Approach:
+
+1. Initialize currCount = 0, maxCount = 0.
+
+2. Loop through array elements.
+
+3. If nums[i] == 1 → increment currCount.
+
+4. If nums[i] == 0 → update maxCount = Math.max(currCount, maxCount), reset currCount = 0.
+
+5. After loop, return Math.max(maxCount, currCount) to cover trailing ones.
+
+Dry run:
+
+Example: nums = [1, 1, 0, 1, 1, 1]
+
+Initial Values:
+currCount = 0, maxCount = 0
+
+
+* i = 0 → nums[0] = 1
+  → currCount = 1, maxCount = 0
+
+* i = 1 → nums[1] = 1
+  → currCount = 2, maxCount = 0
+
+* i = 2 → nums[2] = 0
+  → update maxCount = Math.max(2, 0) = 2
+  → reset currCount = 0
+
+* i = 3 → nums[3] = 1
+  → currCount = 1, maxCount = 2
+
+* i = 4 → nums[4] = 1
+  → currCount = 2, maxCount = 2
+
+* i = 5 → nums[5] = 1
+  → currCount = 3, maxCount = 2
+
+After Loop Ends:
+return Math.max(3, 2) = 3
+
+Output: 3
