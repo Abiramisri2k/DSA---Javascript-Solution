@@ -16,7 +16,6 @@ Approach:
 Dry run:
 
 input:
-
 nums = [0, 1, 0, 3, 12]
 Start: x = 0
 
