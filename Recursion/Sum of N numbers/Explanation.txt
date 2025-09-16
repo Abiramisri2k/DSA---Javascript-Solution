@@ -1,0 +1,51 @@
+Recursion:
+Recursion is a technique where a function calls itself to solve a problem by breaking it down into smaller sub-problems.
+
+Problem Statement:
+Write a function sum(n) that calculates the sum of the first n natural numbers using recursion.
+
+Approach:
+
+* Base case: If n === 0, return 0.
+* Recursive case: Return n + sum(n - 1).
+* This way, the function keeps breaking the problem into smaller parts, adding numbers step by step until it reaches `0`, at which point the recursion stops and all partial results combine to give the final sum.
+
+Dry Run:
+
+n = 5
+
+* check n === 0 → false → skip
+* return 5 + sum(4)
+
+n = 4
+
+* check n === 0 → false → skip
+* return 4 + sum(3)
+
+n = 3
+
+* check n === 0 → false → skip
+* return 3 + sum(2)
+
+n = 2
+
+* check n === 0 → false → skip
+* return 2 + sum(1)
+
+n = 1
+
+* check n === 0 → false → skip
+* return 1 + sum(0)
+
+n = 0
+
+* check n === 0 → true
+* return 0
+
+sum(1) = 1 + 0 = 1
+sum(2) = 2 + 1 = 3
+sum(3) = 3 + 3 = 6
+sum(4) = 4 + 6 = 10
+sum(5) = 5 + 10 = 15
+
+Final Answer = 15
