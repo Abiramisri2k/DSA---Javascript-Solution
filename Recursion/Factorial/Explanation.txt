@@ -1,0 +1,35 @@
+Problem Statement:
+
+Write a recursive function fact(n) that returns the factorial of a number n.
+
+Approach:
+
+* Use recursion to calculate factorial by multiplying the number n with the factorial of (n - 1).
+* Base Case: If n == 1, return 1.
+* Recursive Case: Return n * fact(n - 1).
+* This keeps multiplying downward until reaching 1, giving the factorial result.
+
+Dry run: 
+
+1. fact(5)
+   → 5 * fact(4)
+
+2. fact(4)
+   → 4 * fact(3)
+
+3. fact(3)
+   → 3 * fact(2)
+
+4. fact(2)
+   → 2 * fact(1)
+
+5. fact(1)
+   → Base case → returns 1
+
+
+fact(2) = 2 * 1 = 2
+fact(3) = 3 * 2 = 6
+fact(4) = 4 * 6 = 24
+fact(5) = 5 * 24 = 120
+
+Final Output: 120

@@ -1,0 +1,45 @@
+Fibonacci Sequence using Recursion:
+
+Definition:
+
+   * Fibonacci sequence: each number is the sum of the two preceding ones.
+   * Formula:
+     F(0) = 0
+     F(1) = 1
+     F(n) = F(n-1) + F(n-2) for n > 1
+   Sequence looks like: 0, 1, 1, 2, 3, 5, 8, 13, ...
+
+Approach:
+
+* Base Cases:
+     -> If n == 0, return 0.
+     -> If n == 1, return 1.
+* Recursive Case:
+     -> Return fib(n-1) + fib(n-2).
+* Each recursive call keeps asking for smaller Fibonacci numbers until it reaches the base cases.
+
+Dry run:
+
+fib(5)
+ ├── fib(4)
+ │    ├── fib(3)
+ │    │    ├── fib(2)
+ │    │    │    ├── fib(1) = 1
+ │    │    │    └── fib(0) = 0
+ │    │    │         → fib(2) = 1
+ │    │    └── fib(1) = 1
+ │    │         → fib(3) = 2
+ │    └── fib(2)
+ │         ├── fib(1) = 1
+ │         └── fib(0) = 0
+ │              → fib(2) = 1
+ │         → fib(4) = 3
+ └── fib(3)
+      ├── fib(2)
+      │    ├── fib(1) = 1
+      │    └── fib(0) = 0
+      │         → fib(2) = 1
+      └── fib(1) = 1
+           → fib(3) = 2
+
+Final → fib(5) = 3 + 2 = 5
