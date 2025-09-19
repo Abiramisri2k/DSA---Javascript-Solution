@@ -1,0 +1,46 @@
+Bubble Sort:
+
+Bubble Sort is a basic sorting algorithm that works by repeatedly iterating through the list,
+comparing adjacent elements, and swapping them if they are out of order.
+This process continues until the entire array becomes sorted.
+After each pass, the largest unsorted element moves to its correct position at the end of the array, 
+which is why the algorithm is called “Bubble Sort”—since smaller elements gradually “bubble up” toward the beginning of the list.
+
+Approach:
+
+* Start from the first element.
+* Compare each pair of adjacent elements.
+* Swap if the current element is greater than the next.
+* After each pass, the largest element settles at the end.
+* Reduce the comparison range in every pass.
+* Use a swap flag to stop early if no swaps occur.
+* Repeat until the array is sorted.
+
+Dry run:
+
+arr = [4,5,1,3,9]
+
+Pass 1 (i = 0):
+Compare 4 & 5 → OK
+Compare 5 & 1 → swap → [4,1,5,3,9]
+Compare 5 & 3 → swap → [4,1,3,5,9]
+Compare 5 & 9 → OK
+End of pass → [4,1,3,5,9]
+
+Pass 2 (i = 1):
+Compare 4 & 1 → swap → [1,4,3,5,9]
+Compare 4 & 3 → swap → [1,3,4,5,9]
+Compare 4 & 5 → OK
+9 already in place
+End of pass → [1,3,4,5,9]
+
+Pass 3 (i = 2):
+Compare 1 & 3 → OK
+Compare 3 & 4 → OK
+
+Rest sorted
+No swaps → loop ends early.
+
+Final array → [1, 3, 4, 5, 9]
+
+Output : Sorted array [ 1, 3, 4, 5, 9 ]
