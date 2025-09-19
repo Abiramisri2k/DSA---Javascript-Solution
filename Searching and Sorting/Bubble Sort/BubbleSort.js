@@ -12,7 +12,7 @@ function bubbleSort(arr) {
         isSwapped = true;
       }
     }
-    if (!isSwapped) break; // optimization
+    if (!isSwapped) break; 
   }
   return arr;
 }
