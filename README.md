@@ -9,4 +9,4 @@ This repository contains a collection of Data Structures and Algorithms (DSA) co
 
 ## 🌟 Inspiration
 
-This repository is inspired by Namaste DSA, where the focus is on clarity, problem-solving, and building strong fundamentals.  
+This repository is inspired by the teaching style of Namaste Dev, focusing on clear explanations, step-by-step problem solving, and building strong fundamentals in Data Structures and Algorithms using JavaScript.
