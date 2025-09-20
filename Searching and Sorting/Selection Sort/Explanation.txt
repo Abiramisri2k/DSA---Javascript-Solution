@@ -1,0 +1,72 @@
+Selection Sort:
+
+Selection Sort is a simple comparison-based sorting algorithm.
+It divides the array into two parts: a sorted subarray and an unsorted subarray.
+Initially, the sorted part is empty, and the unsorted part is the entire array.
+In each iteration, it finds the minimum element from the unsorted part and moves it to the end of the sorted part.
+
+Approach:
+
+1. Start with the first element, assume it’s the minimum.
+2. Compare it with all elements to the right.
+3. If a smaller element is found, update the index of the minimum.
+4. After scanning the rest of the array, swap the minimum element with the first element.
+5. Move to the next index and repeat steps 1–4 until the array is sorted.
+6. The array is sorted in place, no extra space needed.
+
+Dry Run:
+
+Initial
+
+arr = [4, 5, 1, 3, 9]
+n = 5
+
+i = 0
+
+Start: min = 0 (value 4)
+Compare j = 1: compare arr[1] = 5 with arr[min] = 4 → 5 < 4? No → min stays 0.
+Compare j = 2: compare arr[2] = 1 with arr[min] = 4 → 1 < 4? Yes → min = 2 (value 1).
+Compare j = 3: compare arr[3] = 3 with arr[min] = 1 → 3 < 1? No → min stays 2.
+Compare j = 4: compare arr[4] = 9 with arr[min] = 1 → 9 < 1? No → min stays 2.
+End inner loop: min = 2 (not equal to i), so swap arr[0] and arr[2].
+
+After swap:
+arr = [1, 5, 4, 3, 9]
+
+i = 1
+
+Start: min = 1 (value 5)
+Compare j = 2: arr[2] = 4 vs arr[min] = 5 → 4 < 5? Yes → min = 2 (value 4).
+Compare j = 3: arr[3] = 3 vs arr[min] = 4 → 3 < 4? Yes → min = 3 (value 3).
+Compare j = 4: arr[4] = 9 vs arr[min] = 3 → 9 < 3? No → min stays 3.
+End inner loop: min = 3 ≠ i, swap arr[1] and arr[3].
+
+After swap:
+arr = [1, 3, 4, 5, 9]
+Sorted prefix: [1, 3]
+
+i = 2
+
+Start: min = 2 (value 4)
+Compare j = 3: arr[3] = 5 vs arr[min] = 4 → 5 < 4? No → min = 2.
+Compare j = 4: arr[4] = 9 vs arr[min] = 4 → 9 < 4? No → min = 2.
+End inner loop: min = 2 equals i → no swap.
+
+Array unchanged:
+arr = [1, 3, 4, 5, 9]
+Sorted prefix: [1, 3, 4]
+
+i = 3
+
+Start: min = 3 (value 5)
+Compare j = 4: arr[4] = 9 vs arr[min] = 5 → 9 < 5? No → min = 3.
+End inner loop: min = 3 equals i → no swap.
+
+Array unchanged:
+arr = [1, 3, 4, 5, 9]
+Sorted prefix: [1, 3, 4, 5]
+
+Final
+
+i = 4 is not needed (last element already placed).
+Sorted array:[1, 3, 4, 5, 9]
