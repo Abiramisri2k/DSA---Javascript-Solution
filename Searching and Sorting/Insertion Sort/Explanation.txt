@@ -1,0 +1,53 @@
+Insertion Sort:
+
+Insertion Sort is a straightforward and easy-to-understand sorting method that organizes the array step by step.
+It works by picking each element and placing it in its correct spot within the already sorted section of the array.
+Starting from the second element, it compares the current value with the elements before it, shifting larger values one step forward until the right position is found.
+This continues until every element is in order.
+It’s especially useful for small datasets or data that’s almost sorted, and it sorts the array directly without needing extra memory.
+
+Approach:
+
+1. Start from the second element (index 1), treating the first element as already “sorted.”
+2. Pick the current element (curr) and compare it with elements before it (prev).
+3. Shift elements that are greater than curr one position to the right.
+4. Insert curr into its correct position in the sorted part.
+5. Repeat until the array is fully sorted.
+
+
+Dry Run:
+
+Input: [4, 5, 1, 3, 9]
+
+Step 1: i = 1 → curr = 5, prev = 0
+
+Compare arr[0] = 4 with curr = 5 → 4 > 5? No.
+So, place curr at arr[1].
+Array: [4, 5, 1, 3, 9]
+
+Step 2: i = 2 → curr = 1, prev = 1
+
+Compare arr[1] = 5 with curr = 1 → 5 > 1 shift → [4, 5, 5, 3, 9].
+Decrement prev = 0.
+Compare arr[0] = 4 with curr = 1 → 4 > 1 shift → [4, 4, 5, 3, 9].
+Decrement prev = -1 → stop.
+Place curr = 1 at arr[0].
+Array: [1, 4, 5, 3, 9]
+
+Step 3: i = 3 → curr = 3, prev = 2
+
+Compare arr[2] = 5 with curr = 3 → 5 > 3 shift → [1, 4, 5, 5, 9].
+Decrement prev = 1.
+Compare arr[1] = 4 with curr = 3 → 4 > 3 shift → [1, 4, 4, 5, 9].
+Decrement prev = 0.
+Compare arr[0] = 1 with curr = 3 → 1 > 3? No.
+Place curr = 3 at arr[1]
+Array: [1, 3, 4, 5, 9]
+
+Step 4: i = 4 → curr = 9, prev = 3
+
+Compare arr[3] = 5 with curr = 9 → 5 > 9? No.
+Place curr = 9 at arr[4]
+Array: [1, 3, 4, 5, 9]
+
+Final Sorted Array: [1, 3, 4, 5, 9]
