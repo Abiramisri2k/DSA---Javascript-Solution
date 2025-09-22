@@ -1,0 +1,47 @@
+Merge Sort:
+
+Merge Sort is a well-known sorting algorithm based on the divide-and-conquer technique.
+It works by splitting the array into two halves, sorting each half recursively, and then merging them back together into a single sorted array.
+It is a stable sorting algorithm and consistently runs in O(n log n) time complexity across best, worst, and average cases.
+
+Approach:
+
+1. Divide the array – Split the array into two halves recursively until each subarray has one element (base case).
+2. Sort subarrays – The recursion ensures left and right halves are sorted individually.
+3. Merge step – Combine the two sorted halves into a single sorted array.
+4. Compare the front elements of both halves.
+   --> Pick the smaller one and move forward.
+   --> Continue until one half is empty.
+   --> Append remaining elements.
+5. Return sorted array – After merging all subproblems, you get the final sorted array.
+
+Dry run:
+
+Step 1: First Split
+
+Input: [4, 2, 7, 1]
+mid = 2, left = [4, 2], right = [7, 1]
+
+Step 2: Split Left [4, 2]
+
+mid = 1, left = [4] (base case), right = [2] (base case)
+Merge [4] & [2]: Compare: 4 > 2 → take 2
+Remaining: 4
+Result = [2, 4]
+
+Step 3: Split Right [7, 1]
+
+mid = 1, left = [7], right = [1]
+Merge [7] & [1]:
+Compare: 7 > 1 → take 1
+Remaining: 7
+Result = [1, 7]
+
+Step 4: Final Merge [2, 4] & [1, 7]
+
+Compare 2 vs 1 → take 1
+Compare 2 vs 7 → take 2
+Compare 4 vs 7 → take 4
+Remaining: 7
+
+Final sorted = [1, 2, 4, 7]
