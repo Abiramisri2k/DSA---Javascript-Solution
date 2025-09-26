@@ -1,0 +1,82 @@
+Problem Statement:
+
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+Approach:
+
+1. Initialize two pointers: prev = null, curr = head.
+2. Traverse the list with while (curr).
+3. Store next node in temp to avoid losing reference.
+4. Reverse the link: curr.next = prev.
+5. Move prev forward: prev = curr.
+6. Move curr forward: curr = temp.
+7. Continue until curr becomes null.
+8. Return prev as the new head of the reversed list.
+
+Dry run:
+
+Input Linked List: 1 → 2 → 3 → 4 → 5 → null
+
+Initialization:
+prev = null
+curr = head (1)
+
+Step 1: (curr = 1)
+temp = curr.next → 2
+curr.next = prev → 1.next = null
+prev = curr → prev = 1
+curr = temp → curr = 2
+
+Now:
+1 → null
+prev = 1
+curr = 2
+
+Step 2: (curr = 2)
+temp = curr.next → 3
+curr.next = prev → 2.next = 1
+prev = curr → prev = 2
+curr = temp → curr = 3
+
+Now:
+2 → 1 → null
+prev = 2
+curr = 3
+
+Step 3: (curr = 3)
+temp = curr.next → 4
+curr.next = prev → 3.next = 2
+prev = curr → prev = 3
+curr = temp → curr = 4
+
+Now:
+3 → 2 → 1 → null
+prev = 3
+curr = 4
+
+Step 4: (curr = 4)
+temp = curr.next → 5
+curr.next = prev → 4.next = 3
+prev = curr → prev = 4
+curr = temp → curr = 5
+
+Now:
+4 → 3 → 2 → 1 → null
+prev = 4
+curr = 5
+
+Step 5: (curr = 5)
+temp = curr.next → null
+curr.next = prev → 5.next = 4
+prev = curr → prev = 5
+curr = temp → curr = null
+
+Now:
+5 → 4 → 3 → 2 → 1 → null
+prev = 5
+curr = null
+
+Loop ends (curr = null)
+Return prev → head of the reversed list.
+
+Final Output: 5 → 4 → 3 → 2 → 1 → null
