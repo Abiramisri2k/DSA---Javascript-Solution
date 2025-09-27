@@ -1,0 +1,64 @@
+Problem Statement:
+
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
+Internally, pos is used to denote the index of the node that tail's next pointer is connected to. 
+Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+Approach:
+
+1. Use a Set to track visited nodes.
+2. While traversing, if we encounter a node already in the set, we’ve found a cycle.
+3. If we reach null, there’s no cycle.
+
+
+Dry run:
+
+Input: 1 → 2 → 3 → 4 → 5
+           ↑           ↓
+           ← ← ← ← ← ← ←
+
+Step 1:
+
+curr = 1
+seenNodes = {} → doesn’t have 1
+Add 1 → seenNodes = {1}
+Move curr = 2
+
+Step 2:
+
+curr = 2
+seenNodes = {1} → doesn’t have 2
+Add 2 → seenNodes = {1, 2}
+Move curr = 3
+
+Step 3:
+
+curr = 3
+seenNodes = {1,2} → doesn’t have 3
+Add 3 → seenNodes = {1,2,3}
+Move curr = 4
+
+Step 4:
+
+curr = 4
+seenNodes = {1,2,3} → doesn’t have 4
+Add 4 → seenNodes = {1,2,3,4}
+Move curr = 5
+
+Step 5:
+
+curr = 5
+seenNodes = {1,2,3,4} → doesn’t have 5
+Add 5 → seenNodes = {1,2,3,4,5}
+Move curr = 2 (because of the cycle)
+
+Step 6:
+
+curr = 2
+seenNodes = {1,2,3,4,5} → already has 2
+Return true
+
+Output:
+true
