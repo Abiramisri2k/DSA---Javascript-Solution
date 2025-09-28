@@ -1,0 +1,71 @@
+Problem Statement:
+
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+Approach:
+
+1. Use slow & fast pointers to find the middle of the linked list.
+2. Reverse the second half of the list starting from slow.
+3. Initialize two pointers:
+    first → start of the list.
+    second → start of reversed second half.
+4. Compare values of both halves node by node.
+5. If any mismatch → return false.
+6. If no mismatch → return true.
+
+
+Dry run:
+
+Input Linked List:
+
+1 → 2 → 2 → 1
+
+Step 1: Find the middle
+slow = head (1), fast = head (1)
+
+
+Iteration 1:
+
+slow = 2
+fast = 2 (moves 2 steps ahead)
+
+Iteration 2:
+
+slow = 2 (second one)
+fast = null (end of list)
+
+Loop stops.
+slow is now at middle (second half starting at 2).
+
+Step 2: Reverse the second half
+
+We reverse from slow = 2 → 1.
+
+prev = null
+slow = 2
+temp = 1
+slow.next = prev → (2 → null)
+prev = 2
+slow = 1
+
+slow = 1
+temp = null
+slow.next = prev → (1 → 2 → null)
+prev = 1
+slow = null
+Second half reversed: 1 → 2 → null
+
+Step 3: Compare two halves
+first = head (1 → 2 → …)
+second = prev (1 → 2 → null)
+
+Comparison:
+
+Compare 1 and 1 
+Move first=2, second=2
+Compare 2 and 2 
+Move first=2, second=null
+Loop ends (second = null).
+
+Step 4: Return result
+No mismatch found → return true.

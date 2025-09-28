@@ -1,0 +1,46 @@
+Problem Statement:
+
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+Approach:
+
+1. Create an empty array arr.
+2. Traverse the linked list and push each node’s value into arr.
+3. Use two pointers: left = 0 and right = arr.length - 1.
+4. Compare values at both ends while moving inward (left++, right--).
+5. If any mismatch is found → return false.
+6. If the loop completes without mismatches → return true.
+
+Dry run:
+
+Input:
+
+1 -> 2 -> 2 -> 1
+
+Step 1: Copy values into array
+
+arr = []
+curr = head (value = 1)
+Push 1 → arr = [1]
+Move curr → 2
+Push 2 → arr = [1, 2]
+Move curr → 2
+Push 2 → arr = [1, 2, 2]
+Move curr → 1
+Push 1 → arr = [1, 2, 2, 1]
+Move curr → null (stop loop)
+
+Step 2: Two-pointer check
+
+Initialize:
+
+left = 0
+right = 3
+
+Compare arr[0]=(1) with arr[3]=(1) → move pointers → left=1, right=2
+Compare arr[1]=(2) with arr[2]=(2) → move pointers → left=2, right=1
+Now left >= right → exit loop.
+
+Step 3: Return result
+
+Since no mismatch found → return true.
