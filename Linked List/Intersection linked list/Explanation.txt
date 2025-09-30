@@ -1,0 +1,41 @@
+Problem Statement: 
+
+Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. 
+If the two linked lists have no intersection at all, return null.
+
+Approach: 
+
+1. Create a Set to store all nodes of list B.
+2. Traverse list B add each node reference into the Set.
+3. Traverse list A for each node, check if it exists in the Set.
+4. If found return that node (first intersection point).
+5. If traversal finishes return null (no intersection).
+
+Dry run:
+
+Input: HeadA:  1 → 2 → 3 
+                        \
+                         4 → 5
+                        /
+       HeadB:  7 → 8 → 9
+
+Step 1: Traverse List B
+
+headB = 7 → add node(7)
+headB = 8 → add node(8)
+headB = 9 → add node(9)
+headB = 4 → add node(4)
+headB = 5 → add node(5)
+Now:
+Set = { node(7), node(8), node(9), node(4), node(5) }
+
+Step 2: Traverse List A
+
+headA = 1 → not in set
+headA = 2 → not in set
+headA = 3 → not in set
+headA = 4 → found in set → return this node
+
+Final Output:
+
+The function returns the node with value 4 (the intersection point).
