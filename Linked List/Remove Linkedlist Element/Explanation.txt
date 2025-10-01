@@ -1,0 +1,62 @@
+Problem Statement:
+
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
+
+Approach:
+
+1. Create a sentinel (dummy) node pointing to head to handle edge cases.
+2. Initialize a pointer (prev) to the sentinel node.
+3. Traverse the list while prev.next exists.
+4. Check node value:
+   If prev.next.val === val → skip the node (prev.next = prev.next.next).
+   Else → move prev forward (prev = prev.next).
+5. Return sentinel.next as the new head of the modified list.
+
+Dry run:
+
+Input: head = [1,2,6,3,4,5,6], val = 6
+
+Step 1: Create sentinel node
+
+sentinel -> 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6
+prev = sentinel
+
+Step 2: Traverse the list
+
+prev = sentinel, prev.next = 1
+
+1 !== 6 → move prev forward
+prev = 1
+prev = 1, prev.next = 2
+
+2 !== 6 → move prev forward
+prev = 2
+prev = 2, prev.next = 6
+
+6 === 6 → skip node
+prev.next = 3
+List now: sentinel -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+prev stays at 2
+prev = 2, prev.next = 3
+
+3 !== 6 → move prev forward
+prev = 3
+prev = 3, prev.next = 4
+
+4 !== 6 → move prev forward
+prev = 4
+prev = 4, prev.next = 5
+
+5 !== 6 → move prev forward
+prev = 5
+prev = 5, prev.next = 6
+
+6 === 6 → skip node
+prev.next = null
+List now: sentinel -> 1 -> 2 -> 3 -> 4 -> 5
+
+Step 3: Return result
+
+return sentinel.next
+Output: [1, 2, 3, 4, 5]
