@@ -1,0 +1,51 @@
+Problem Statement:
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+Approach:
+
+1. Create a dummy (sentinel) node pointing to head.
+2. Initialize two pointers, first and second, at sentinel.
+3. Move first pointer n steps ahead to create a gap.
+4. Move both first and second simultaneously until first.next is null.
+5. Remove the target node with second.next = second.next.next.
+6. Return sentinel.next as the new head.
+
+Dry run:
+
+Input:
+
+head = [1 → 2 → 3 → 4 → 5], n = 2
+output: [1 → 2 → 3 → 5]
+
+Step 1: Create sentinel
+sentinel → 0 → 1 → 2 → 3 → 4 → 5
+first = sentinel, second = sentinel
+
+Step 2: Move first n steps ahead
+n = 2 → move first 2 times:
+first moves from sentinel → 1
+first moves from 1 → 2
+
+After this step:
+first points to node 2
+second still at sentinel (0)
+
+Step 3: Move both pointers until first.next is null
+Loop: while(first && first.next)
+first = 2 → 3, second = 0 → 1
+first = 3 → 4, second = 1 → 2
+first = 4 → 5, second = 2 → 3
+Now first.next = null → stop loop
+second is at node 3
+second.next = 4 (target node to remove)
+
+Step 4: Remove the target node
+second.next = second.next.next;
+second.next = 5
+List becomes: 1 → 2 → 3 → 5
+
+Step 5: Return new head
+sentinel.next points to node 1
+
+Final output: [1 → 2 → 3 → 5]

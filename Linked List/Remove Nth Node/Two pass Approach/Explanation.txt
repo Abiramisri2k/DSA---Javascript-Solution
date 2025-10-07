@@ -1,0 +1,57 @@
+Problem Statement:
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+Approach:
+
+1. Create a dummy (sentinel) node pointing to head.
+2. Traverse the list to calculate its total length.
+3. Move a pointer to the node just before the target (length - n).
+4. Skip the target node using prev.next = prev.next.next.
+5. Return sentinel.next as the new head of the list.
+
+
+Dry Run:
+
+Input:
+
+head = [1 → 2 → 3 → 4 → 5], n = 2
+output: [1 → 2 → 3 → 5]
+
+Step 1: Create sentinel
+let sentinel = new ListNode();
+sentinel.next = head;
+sentinel points to 0 → 1 → 2 → 3 → 4 → 5
+head still points to 1 → 2 → 3 → 4 → 5
+length = 0
+
+Step 2: Calculate length
+Traverse the list with head:
+
+head = 1 → length = 1 → move head to 2
+head = 2 → length = 2 → move head to 3
+head = 3 → length = 3 → move head to 4
+head = 4 → length = 4 → move head to 5
+head = 5 → length = 5 → move head to null
+
+Total length = 5
+head = null
+
+Step 3: Find node before target
+We want (length - n) = 3 steps from sentinel:
+prev = sentinel → step 1 → prev = 1
+step 2 → prev = 2
+step 3 → prev = 3
+prev now points to node with value 3
+prev.next = node 4 (target node to remove)
+
+Step 4: Remove the target node
+prev.next = prev.next.next;
+prev.next (node 4) now points to node 5
+List becomes: 1 → 2 → 3 → 5
+Node 4 is effectively removed
+
+Step 5: Return the new head
+return sentinel.next -> sentinel.next points to 1
+
+Final list: 1 → 2 → 3 → 5
