@@ -1,0 +1,60 @@
+Problem Statement:
+
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. 
+Return the linked list sorted as well.
+
+Approach:
+
+1. Start with pointer curr = head.
+2. Traverse while curr and curr.next exist.
+3. Compare curr.val and curr.next.val.
+4. If equal → skip duplicate (curr.next = curr.next.next).
+5. Else → move pointer (curr = curr.next).
+6. Continue until end of list.
+7. Return head.
+
+Dry run:
+
+head = [1 -> 1 -> 2 -> 3 -> 3]
+Remove duplicates → [1 -> 2 -> 3]
+
+Initial setup:
+
+curr = head (value = 1)
+
+Loop 1:
+
+curr.val = 1
+curr.next.val = 1 -> Equal
+Skip the duplicate: curr.next = curr.next.next;
+Now the list becomes: 1 -> 2 -> 3 -> 3
+curr stays at 1.
+
+Loop 2:
+
+curr.val = 1
+curr.next.val = 2 -> Not equal
+Move pointer: curr = curr.next; // curr = 2
+List remains: 1 -> 2 -> 3 -> 3
+
+Loop 3:
+
+curr.val = 2
+curr.next.val = 3 -> Not equal
+Move pointer: curr = curr.next; // curr = 3
+List remains: 1 -> 2 -> 3 -> 3
+
+Loop 4:
+
+curr.val = 3
+curr.next.val = 3 -> Equal
+Skip duplicate: curr.next = curr.next.next;
+List becomes: 1 -> 2 -> 3
+
+Loop 5:
+
+curr = 3
+curr.next = null
+Loop stops
+
+Final Output: 1 -> 2 -> 3
