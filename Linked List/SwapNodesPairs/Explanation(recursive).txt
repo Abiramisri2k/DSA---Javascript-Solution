@@ -1,0 +1,39 @@
+Problem Statement:
+
+Given a linked list, swap every two adjacent nodes and return its head. 
+You must solve the problem without modifying the values in the list's nodes 
+(i.e., only nodes themselves may be changed.)
+
+Approach:
+
+1. Base case: if head is null or head.next is null → return head.
+2. Identify first two nodes: l = head (first), r = head.next (second).
+3. Recursively swap the rest of the list starting from r.next:
+   l.next = swapPairs(r.next)
+4. Swap the first two nodes by pointing r.next = l.
+5. Return r as the new head of the current segment.
+6. Continue recursion until the end of the list.
+
+Dry run:
+
+Input:
+1 → 2 → 3 → 4
+
+Step 1:
+l = 1, r = 2
+Recursively swap rest: swapPairs(3 → 4)
+
+Step 2 (recursive call):
+
+l = 3, r = 4
+l.next = swapPairs(null) → returns null
+r.next = l → 4 → 3 → null
+return r → head = 4
+
+Step 3 (back to first call):
+
+l.next = swapPairs(r.next) → l.next = 4 → 3
+r.next = l → 2 → 1 → 4 → 3
+return r → new head = 2
+
+Output: 2 → 1 → 4 → 3

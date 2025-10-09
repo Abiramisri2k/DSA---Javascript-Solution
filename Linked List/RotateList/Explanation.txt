@@ -1,0 +1,44 @@
+Problem Statement:
+
+Given the head of a linked list, rotate the list to the right by k places.
+
+Approach:
+
+1. Handle edge cases: if head is null or has only one node → return head.
+2. Traverse the list to calculate its length.
+3. Optimize k by doing k = k % length.
+4. Initialize two pointers: s (slow) and f (fast) at head.
+5. Move f k steps ahead.
+6. Move both s and f together until f.next is null.
+7. Connect the end to the head: f.next = head.
+8. Mark new head: newHead = s.next.
+9. Break the link to form the rotated list: s.next = null.
+10. Return newHead.
+
+Dry run:
+
+Input: 1 → 2 → 3 → 4 → 5, k = 2
+
+Step 1: Find length
+
+length = 5
+k = k % length = 2
+
+Step 2: Move fast pointer k steps
+
+f = head → 1 → move 2 steps → f = 3
+s = head → 1
+
+Step 3: Move s and f together until f.next = null
+
+Iteration 1: s = 2, f = 4
+Iteration 2: s = 3, f = 5
+Now f is at last node, s at node before new head.
+
+Step 4: Rotate
+
+f.next = head   → 5.next = 1
+newHead = s.next → 4
+s.next = null    → 3.next = null
+
+Output: 4 → 5 → 1 → 2 → 3

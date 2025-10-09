@@ -1,0 +1,79 @@
+Problem Statement:
+
+Given a linked list, swap every two adjacent nodes and return its head. 
+You must solve the problem without modifying the values in the list's nodes 
+(i.e., only nodes themselves may be changed.)
+
+Approach:
+
+1. Handle edge case: if head is null or head.next is null → return head.
+2. Create a dummy node pointing to head to simplify head swaps.
+3. Initialize pointers:
+   p → previous node (starts at dummy)
+   c → current node (first in pair)
+   n → next node (second in pair)
+4. Iterate while c and n exist:
+   p.next = n → connect previous node to second node
+   c.next = n.next → connect first node to node after second
+   n.next = c → connect second node to first
+5. Move pointers forward for next pair:
+   p = c
+   c = p.next
+   n = c && c.next
+6. After all pairs swapped, return dummy.next as the new head.
+
+Dry run:
+
+Input:
+1 → 2 → 3 → 4
+
+We have pointers:
+
+dummy → 0 → 1 → 2 → 3 → 4
+p = dummy (previous)
+c = 1 (current)
+n = 2 (next)
+
+Step 1: Swap first pair (1, 2)
+Before swap:
+dummy → 1 → 2 → 3 → 4
+p = dummy, c = 1, n = 2
+
+Swap logic:
+p.next = n → dummy → 2
+c.next = n.next → 1 → 3
+n.next = c → 2 → 1
+
+List now:
+dummy → 2 → 1 → 3 → 4
+
+Move pointers:
+p = 1
+c = 3
+n = 4
+
+Step 2: Swap second pair (3, 4)
+Before swap:
+p = 1
+c = 3
+n = 4
+
+Swap logic:
+p.next = n → 1 → 4
+c.next = n.next → 3 → null
+n.next = c → 4 → 3
+
+List now:
+dummy → 2 → 1 → 4 → 3
+
+Move pointers:
+p = 3
+c = null
+n = null
+
+Step 3: End of loop
+
+c is null → stop.
+Return dummy.next → 2 → 1 → 4 → 3
+
+Final Output: 2 → 1 → 4 → 3

@@ -1,0 +1,68 @@
+Problem Statement:
+
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+The first node is considered odd, and the second node is even, and so on.
+Note that the relative order inside both the even and odd groups should remain as it was in the input.
+You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+
+Approach:
+
+1. Check if list has 0 or 1 node → return head.
+2. Initialize odd = head, even = head.next, evenHead = even.
+3. Traverse while odd.next and even.next exist.
+4. Link next odd node → odd.next = odd.next.next.
+5. Move odd pointer → odd = odd.next.
+6. Link next even node → even.next = even.next.next.
+7. Move even pointer → even = even.next.
+8. After loop, connect odd.next = evenHead.
+9. Return head.
+
+Dry run:
+
+head = [1 → 2 → 3 → 4 → 5]
+
+Initial setup:
+odd = head → 1
+even = head.next → 2
+evenHead = 2
+
+1(odd) → 2(even) → 3 → 4 → 5
+
+Loop 1:
+
+Condition: odd.next && even.next → 2 and 3 exist
+odd.next = odd.next.next = 1 -> 3
+odd = odd.next = 3
+
+even.next = even.next.next = 2 -> 4
+even = even.next = 4
+
+List now looks like:
+
+1 → 3 → 4 → 5
+↓
+2 → 4 → 5
+
+(odd list: 1→3, even list: 2→4)
+
+Loop 2:
+
+Condition: odd.next && even.next → 4 and 5 exist
+odd.next = odd.next.next = 3 → 5
+odd = odd.next = 5
+
+even.next = even.next.next = 4 → null (end)
+even = even.next = null
+
+Lists now:
+
+Odd list: 1 → 3 → 5
+Even list: 2 → 4
+
+Loop ends
+
+(even.next is null)
+odd.next = evenHead;
+
+Now: 1 → 3 → 5 → 2 → 4
+Final Output: [1, 3, 5, 2, 4]

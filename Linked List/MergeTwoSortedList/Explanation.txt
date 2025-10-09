@@ -1,0 +1,76 @@
+Problem Statement:
+
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
+
+Approach:
+
+1. Create a dummy node start to simplify linking.
+2. Initialize pointer curr = start to track where to append next.
+3. Traverse both lists while neither is null:
+4. Compare list1.val and list2.val.
+5. Append the smaller node to curr.next.
+6. Move curr and the list pointer (list1 or list2) forward.
+7. After loop, one list might still have remaining nodes:
+   If list1 is null → append remaining list2.
+   If list2 is null → append remaining list1.
+8. Return start.next (skip dummy node).
+
+Dry run:
+
+Input:
+list1 = [1 → 3 → 5]
+list2 = [2 → 4 → 6]
+
+Step 0: Initialize
+
+start = [0] (dummy)
+curr = start
+
+Step 1: Compare 1 and 2
+
+1 < 2 → append list1
+curr.next = 1
+curr = 1
+list1 = 3
+List now: [0 → 1]
+
+Step 2: Compare 3 and 2
+
+2 < 3 → append list2
+curr.next = 2
+curr = 2
+list2 = 4
+List now: [0 → 1 → 2]
+
+Step 3: Compare 3 and 4
+3 < 4 → append list1
+curr.next = 3
+curr = 3
+list1 = 5
+
+
+List now: [0 → 1 → 2 → 3]
+
+Step 4: Compare 5 and 4
+
+4 < 5 → append list2
+curr.next = 4
+curr = 4
+list2 = 6
+List now: [0 → 1 → 2 → 3 → 4]
+
+Step 5: Compare 5 and 6
+
+5 < 6 → append list1
+curr.next = 5
+curr = 5
+list1 = null
+
+Step 6: Remaining nodes
+
+list1 = null → append remaining list2 (6)
+curr.next = 6
+
+Final merged list: [1 → 2 → 3 → 4 → 5 → 6]
